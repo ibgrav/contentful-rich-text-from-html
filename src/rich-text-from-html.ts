@@ -1,22 +1,26 @@
 import { ElementType, parseDocument } from "htmlparser2";
 import { BLOCKS, Document } from "@contentful/rich-text-types";
-import { TopLevelTagRecord, createTopLevelBlockFromTag } from "./create-top-level-block";
-import { InlineTagRecord } from "./create-inline";
-import { MarkTagRecord } from "./create-text";
+import { TopLevelRecord, createTopLevelBlockFromTag } from "./create-top-level-block";
+import { InlineRecord } from "./create-inline";
+import { MarkRecord } from "./create-marks";
 
 export interface RichTextFromHtmlOpts {
   /**
-   * Include additional html tags or overwrite defaults for top-level Contentful nodeTypes
+   * Include additional html tags or overwrite defaults for top-level Contentful nodeTypes, ex. "div: BLOCKS.PARAGRAPH"
    */
-  topLevelTags?: TopLevelTagRecord;
+  topLevelTags?: TopLevelRecord;
   /**
-   * Include additional html tags or overwrite defaults for inline Contentful nodeTypes
+   * Include additional html tags or overwrite defaults for inline Contentful nodeTypes, ex. "a: INLINES.HYPERLINK"
    */
-  inlineTags?: InlineTagRecord;
+  inlineTags?: InlineRecord;
   /**
-   * Include additional html tags or overwrite defaults for text marks
+   * Include additional html tags or overwrite defaults for text marks, ex. "strong: MARKS.BOLD"
    */
-  markTags?: MarkTagRecord;
+  markTags?: MarkRecord;
+  /**
+   * Include additional html classes or overwrite defaults for text marks, ex. "font-bold: MARKS.BOLD"
+   */
+  markClassNames?: MarkRecord;
 }
 
 export function richTextFromHtml(html: string, opts: RichTextFromHtmlOpts = {}): Document {

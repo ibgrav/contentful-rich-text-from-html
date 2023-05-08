@@ -2,9 +2,9 @@ import { INLINES, Inline } from "@contentful/rich-text-types";
 import { RichTextFromHtmlOpts } from "./rich-text-from-html";
 import { Element } from "domhandler";
 
-export type InlineTagRecord = Record<string, INLINES>;
+export type InlineRecord = Record<string, INLINES>;
 
-const inlineTags: InlineTagRecord = {
+const inlineTags: InlineRecord = {
   a: INLINES.HYPERLINK
 };
 

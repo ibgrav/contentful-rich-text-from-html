@@ -2,10 +2,10 @@ import { BLOCKS, TopLevelBlock, TopLevelBlockEnum } from "@contentful/rich-text-
 import { RichTextFromHtmlOpts } from "./rich-text-from-html";
 import { Element } from "domhandler";
 
-export type TopLevelTagRecord = Record<string, TopLevelBlockEnum>;
+export type TopLevelRecord = Record<string, TopLevelBlockEnum>;
 
 //MISSING: BLOCKS.EMBEDDED_ENTRY | BLOCKS.EMBEDDED_ASSET
-const topLevelTags: TopLevelTagRecord = {
+const topLevelTags: TopLevelRecord = {
   p: BLOCKS.PARAGRAPH,
   h1: BLOCKS.HEADING_1,
   h2: BLOCKS.HEADING_2,
