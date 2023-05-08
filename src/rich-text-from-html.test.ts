@@ -3,7 +3,8 @@ import { richTextFromHtml } from "./rich-text-from-html";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 test("rich-text-from-html", () => {
-  const result = richTextFromHtml("");
+  const p = richTextFromHtml("<p>paragraph</p>");
 
-  expect(result.nodeType).toEqual(BLOCKS.DOCUMENT);
+  expect(p.nodeType).toEqual(BLOCKS.DOCUMENT);
+  expect(p.content[0]?.nodeType).toEqual("paragraph");
 });
