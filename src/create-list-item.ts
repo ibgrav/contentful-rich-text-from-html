@@ -1,11 +1,11 @@
-import { BLOCKS, TopLevelBlock, TopLevelBlockEnum } from "@contentful/rich-text-types";
+import { BLOCKS, ListItemBlockEnum, ListItemBlock } from "@contentful/rich-text-types";
 import { RichTextFromHtmlOpts } from "./rich-text-from-html";
 import { Element } from "domhandler";
 
-export type TopLevelRecord = Record<string, TopLevelBlockEnum>;
+export type ListItemRecord = Record<string, ListItemBlockEnum>;
 
-//MISSING: BLOCKS.EMBEDDED_ENTRY | BLOCKS.EMBEDDED_ASSET
-const topLevelTags: TopLevelRecord = {
+// missing BLOCKS.EMBEDDED_ENTRY | BLOCKS.EMBEDDED_ASSET
+const listItemTags: ListItemRecord = {
   p: BLOCKS.PARAGRAPH,
   h1: BLOCKS.HEADING_1,
   h2: BLOCKS.HEADING_2,
@@ -16,14 +16,13 @@ const topLevelTags: TopLevelRecord = {
   ul: BLOCKS.UL_LIST,
   ol: BLOCKS.OL_LIST,
   hr: BLOCKS.HR,
-  blockquote: BLOCKS.QUOTE,
-  table: BLOCKS.TABLE
+  blockquote: BLOCKS.QUOTE
 };
 
-export function createTopLevelBlock(node: Element, opts: RichTextFromHtmlOpts): TopLevelBlock | undefined {
+export function createListItemBlock(node: Element, opts: RichTextFromHtmlOpts): ListItemBlock | undefined {
   const tags = {
-    ...topLevelTags,
-    ...opts.topLevelTags
+    ...listItemTags
+    // ...opts.topLevelTags
   };
 
   const nodeType = tags[node.tagName];

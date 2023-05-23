@@ -1,8 +1,8 @@
 {
-  "include": ["src"],
+  "include": ["src", "tests"],
 
   "compilerOptions": {
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
 
     "target": "ES2022",
     "module": "ES2022",

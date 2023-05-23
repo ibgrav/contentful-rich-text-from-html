@@ -6,9 +6,12 @@ export type InlineRecord = Record<string, INLINES>;
 
 const inlineTags: InlineRecord = {
   a: INLINES.HYPERLINK
+  // ENTRY_HYPERLINK = "entry-hyperlink",
+  // ASSET_HYPERLINK = "asset-hyperlink",
+  // EMBEDDED_ENTRY = "embedded-entry-inline"
 };
 
-export function createInlineFromTag(node: Element, opts: RichTextFromHtmlOpts): Inline | undefined {
+export function createInline(node: Element, opts: RichTextFromHtmlOpts): Inline | undefined {
   const tags = {
     ...inlineTags,
     ...opts.inlineTags
